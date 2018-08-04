@@ -1,0 +1,60 @@
+// Utility
+.clearfix {
+  zoom: 1;
+	&:before, &:after {
+		content: "";
+  	display: table;
+	}
+	&:after { clear:both; }
+}
+
+.no-select {
+	cursor:default;
+	-webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+// Display
+.inline {display:inline;}
+.inline-block {display:inline-block;}
+.block {display:block;}
+
+// Position
+.relative {position:relative;}
+.absolute {position:absolute;}
+.fixed {position:fixed;}
+
+// Text
+.text-center {text-align:center;}
+.text-right {text-align:right;}
+.text-left {text-align:left;}
+
+// Accessibility
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+
+// Hide/show
+.hidden {
+  display: none;
+}
+.mobile-only {
+  display: none;
+  @media (max-width: @mobileBreakpoint) {
+    display: block;
+  }
+}
+.hidden-mobile {
+  @media (max-width: @mobileBreakpoint) {
+    display: none;
+  }
+}

@@ -1,0 +1,39 @@
+/**
+ * Fonts
+ */
+
+/* Roboto Thin */
+@font-face {
+  font-family: 'robotothin';
+  src: url('/fonts/roboto-thin-webfont.woff2') format('woff2'),
+       url('/fonts/roboto-thin-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Roboto Regular */
+@font-face {
+  font-family: 'robotoregular';
+  src: url('/fonts/roboto-regular-webfont.woff2') format('woff2'),
+       url('/fonts/roboto-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Roboto Black */
+@font-face {
+  font-family: 'robotoblack';
+  src: url('/fonts/roboto-black-webfont.woff2') format('woff2'),
+       url('/fonts/roboto-black-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Pacifico */
+@font-face {
+  font-family: 'pacificoregular';
+  src: url('/fonts/pacifico-regular-webfont.woff2') format('woff2'),
+       url('/fonts/pacifico-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
