@@ -1,32 +1,42 @@
 // Libraries
 import React from 'react';
-import { Link } from 'react-router-dom';
+import UserSearchForm from './UserSearchForm';
+import UserStats from './UserStats';
+
 
 // App Component
 export default class App extends React.Component {
 
   state = {
-    some: 'thing'
+    user: '',
+    userStats: null,
+    searchTimeout: 0,
   }
 
   componentDidMount() {
-    console.log('component will mount');
+    console.log('App / component did mount');
   }
 
   componentDidUpdate() {
-    console.log('component will update');
+    console.log('App / component did update');
+    console.log(this.state);//REMOVE
   }
 
   componentWillUnmount() {
-    console.log('component will unmount')
+    console.log('App / component will unmount');
+  }
+
+  // User Search
+  handleSearch = (string) => {
+    const cleanString = string.trim();
+    if(cleanString !== '') this.setState({user: cleanString});
   }
 
   render() {
     return (
       <main className="app-wrapper">
-        <h1 style={{margin: '2rem 0', textAlign: 'center'}}>
-          <Link to="/sdf">Base 2018 (React)</Link>
-        </h1>
+        <UserSearchForm handleSearch={this.handleSearch} />
+        <UserStats userStats={this.state.userStats} user={this.state.user}  />
       </main>
     )
   }

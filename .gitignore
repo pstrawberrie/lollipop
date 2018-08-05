@@ -65,3 +65,7 @@ dist/
 
 # mac
 .DS_Store
+
+# locks...yeah yeah, whatever.
+yarn.lock
+package-lock.json

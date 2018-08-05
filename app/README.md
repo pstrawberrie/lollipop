@@ -1,12 +1,13 @@
-# Base
+# Lollipop
+**A League of Legends API App written to practice React**  
+**[Using 2018 Front-end Base (React)](https://github.com/pstrawberrie/base/tree/react)**  
 
-2018 Front-end Base
+### Notes
+- Credential config: ``/service/config``
+- App written in a mixture of es6/es5
 
-### Branches
-- [Master](https://github.com/pstrawberrie/base/tree/master)
-- [React](https://github.com/pstrawberrie/base/tree/react)
+#### Service
+- Express
 
-### Webpack
-- webpack.common.js / shared config
-- webpack.dev.js / dev server config
-- webpack.prod.js / build config
+#### App
+- React

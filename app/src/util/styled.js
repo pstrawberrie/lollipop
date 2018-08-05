@@ -24,14 +24,17 @@ const font = {
   lineHeight: {
     default: 1.3,
     paragraph: 1.4,
-    title: 1.5
+    title: 1.6
   },
   size: {
     small: '.9rem',
     tiny: '.7rem',
-    large: '8rem',
-    hero: '12rem',
-    navLink: '.88rem'
+    xlarge: '8rem',
+    large: '6rem',
+    medium: '3rem',
+    hero: '9rem',
+    navLink: '.88rem',
+    form: '1.6rem'
   }
 }
 
@@ -40,7 +43,9 @@ const size = {
   desktopMax: '1366px',
   desktopMin: '1365px',
   mobileMax: '960px',
-  mobileMin: '961px'
+  mobileMin: '961px',
+  xsMax: '650px',
+  xsMin: '649px'
 }
 
 
