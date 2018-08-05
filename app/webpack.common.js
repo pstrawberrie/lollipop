@@ -52,7 +52,7 @@ module.exports = {
     }),
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
-      title: 'Base',
+      title: 'Lollipop',
       template: 'src/index.html',
       minify: {removeComments: true, collapseWhitespace: true, conservativeCollapse: true}
     }),

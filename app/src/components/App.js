@@ -2,7 +2,8 @@
 import React from 'react';
 import UserSearchForm from './UserSearchForm';
 import UserStats from './UserStats';
-
+import axios from 'axios';
+import { endpoint } from '../util/helpers';
 
 // App Component
 export default class App extends React.Component {
@@ -29,7 +30,18 @@ export default class App extends React.Component {
   // User Search
   handleSearch = (string) => {
     const cleanString = string.trim();
-    if(cleanString !== '') this.setState({user: cleanString});
+    if(cleanString === '') return;
+    
+    axios.post(endpoint.league, {
+      user: cleanString
+    })
+    .then(response => {
+      console.log(response);
+    })
+    .catch(err => {
+      console.log('error with call in handleSearch: ', err);
+    });
+    this.setState({user: cleanString});
   }
 
   render() {

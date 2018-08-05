@@ -119,7 +119,7 @@ export default class UserSearchForm extends React.Component {
       <React.Fragment>
         <LogoText>Lollipop</LogoText>
         <FormElement onSubmit={this.handleFormSubmit}>
-          <FormTextInput type="text" className="shadow-1" onChange={this.handleTextChange} />
+          <FormTextInput type="text" onChange={this.handleTextChange} />
           <FormSubmitWrapper>
             <FormSubmitButton type="submit" value="" />
             <SearchIcon />

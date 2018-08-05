@@ -13,6 +13,7 @@ if (major < 8 || (major === 8 && minor <= 10)) {
 const chalk = require('chalk');
 const cl = console.log;
 const express = require('express');
+const cors = require('cors');
 const bodyParser = require('body-parser');
 const routes = require('./routes');
 const errorHandlers = require('./util/errorHandlers');
@@ -20,6 +21,7 @@ const errorHandlers = require('./util/errorHandlers');
 // Server Setup
 const app = express();
 
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/', routes);

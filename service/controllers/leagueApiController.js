@@ -1,9 +1,11 @@
 /**
  * League API Controller
  */
+const axios = require('axios');
 
-exports.handleCall = function(req, res, next) {
-  console.log('Got Params from request:');
-  console.log(req.params);
-  res.send(req.params);
+exports.handleCall = async function(req, res) {
+  const userCall = await axios.get(
+    
+  );
+  res.json({hi:'hey'});
 }

@@ -69,3 +69,6 @@ dist/
 # locks...yeah yeah, whatever.
 yarn.lock
 package-lock.json
+
+# configs
+config.js
