@@ -5,8 +5,8 @@ const { handleAsync } = require('./util/helpers');
 // Controllers
 const leagueApiController = require('./controllers/leagueApiController');
 
-// ++ Items
-router.post('/league-api',
+// ++ League API Call
+router.post('/league-api', 
   handleAsync(leagueApiController.handleCall)
 );
 

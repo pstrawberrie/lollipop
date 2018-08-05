@@ -28,15 +28,20 @@ export default class App extends React.Component {
   }
 
   // User Search
-  handleSearch = (string) => {
-    const cleanString = string.trim();
-    if(cleanString === '') return;
+  handleSearch = (searchFormState) => {
+    const cleanString = searchFormState.inputText.trim();
+    const region = searchFormState.region;
+    if(cleanString === '' || region === '') return;
     
     axios.post(endpoint.league, {
-      user: cleanString
+      callData: {
+        region,
+        user: cleanString,
+        service: 'summonerByName'
+      }
     })
     .then(response => {
-      console.log(response);
+      console.log(response.data);
     })
     .catch(err => {
       console.log('error with call in handleSearch: ', err);

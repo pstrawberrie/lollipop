@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import regions from '../../../data/regions.json';
 import { color, font, size } from '../util/styled';
 import { Search } from 'styled-icons/fa-solid/Search';
 
@@ -45,6 +46,11 @@ const FormTextInput = styled.input`
     max-width: 700px;
     font-size: ${font.size.medium};
   }
+`;
+
+const FormSelectBox = styled.select`
+  border: 0;
+  font-size: ${font.size.form};
 `;
 
 const FormSubmitWrapper = styled.div`
@@ -93,8 +99,11 @@ const SearchIcon = Search.extend`
 // User Search Form Component
 export default class UserSearchForm extends React.Component {
 
+  defaultRegion = 'NA1';
+
   state = {
-    inputText: ''
+    inputText: '',
+    region: this.defaultRegion
   }
 
   componentDidMount() {
@@ -109,9 +118,13 @@ export default class UserSearchForm extends React.Component {
     this.setState({inputText: event.currentTarget.value});
   }
 
+  handleSelectChange = event => {
+    this.setState({region: event.currentTarget.value});
+  }
+
   handleFormSubmit = event => {
     event.preventDefault();
-    this.props.handleSearch(this.state.inputText);
+    this.props.handleSearch(this.state);
   }
 
   render() {
@@ -124,6 +137,11 @@ export default class UserSearchForm extends React.Component {
             <FormSubmitButton type="submit" value="" />
             <SearchIcon />
           </FormSubmitWrapper>
+          <FormSelectBox defaultValue={this.defaultRegion} onChange={this.handleSelectChange}>
+            { Object.keys(regions).map((region, index) => {
+              return(<option key={index} value={region}>{region}</option>)
+            }) }
+          </FormSelectBox>
         </FormElement>
       </React.Fragment>
     );
