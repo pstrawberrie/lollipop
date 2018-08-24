@@ -10,6 +10,7 @@ if (major < 8 || (major === 8 && minor <= 10)) {
 }
 
 // Dependencies
+const path = require('path');
 const chalk = require('chalk');
 const cl = console.log;
 const express = require('express');
@@ -22,6 +23,8 @@ const errorHandlers = require('./util/errorHandlers');
 const app = express();
 
 app.use(cors());
+app.set("view engine", "pug");
+app.set("views", path.join(__dirname, "views"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/', routes);
@@ -33,6 +36,7 @@ if (app.get('env') === 'development') {
 }
 app.use(errorHandlers.productionErrors);
 
+// Listen
 app.set('port', process.env.PORT || 7777);
 const server = app.listen(app.get('port'), () => {
   cl(chalk.bgGreen(` Server running → PORT ${server.address().port} `));

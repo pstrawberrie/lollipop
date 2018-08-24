@@ -1,3 +1,4 @@
 {
-  "summonerByName": "/lol/summoner/v3/summoners/by-name/"
+  "summonerByName": "/lol/summoner/v3/summoners/by-name/",
+  "matchesByAccountId": "/lol/match/v3/matchlists/by-account/"
 }

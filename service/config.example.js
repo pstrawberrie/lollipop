@@ -2,8 +2,6 @@
  * Config
  */
 
-const config = {
+module.exports = {
   apiKey: 'xxx'
 }
-
-export default config;

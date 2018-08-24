@@ -1,5 +1,6 @@
 // Libraries
 import React from 'react';
+import Loader from './Loader';
 import UserSearchForm from './UserSearchForm';
 import UserStats from './UserStats';
 import axios from 'axios';
@@ -10,6 +11,9 @@ export default class App extends React.Component {
 
   state = {
     user: '',
+    loading: false,
+    errors: null,
+    userInfo: null,
     userStats: null,
     searchTimeout: 0,
   }
@@ -29,6 +33,7 @@ export default class App extends React.Component {
 
   // User Search
   handleSearch = (searchFormState) => {
+    this.setState({ loading: true });
     const cleanString = searchFormState.inputText.trim();
     const region = searchFormState.region;
     if(cleanString === '' || region === '') return;
@@ -36,24 +41,38 @@ export default class App extends React.Component {
     axios.post(endpoint.league, {
       callData: {
         region,
-        user: cleanString,
-        service: 'summonerByName'
+        user: cleanString
       }
     })
     .then(response => {
       console.log(response.data);
+      if(response.error) {
+        this.setState({
+          loading: false,
+          errors: response.userError
+        })
+      } else {
+        this.setState({
+          loading: false,
+          user: cleanString,
+          userInfo: response.data.userInfo
+        });
+      }
     })
     .catch(err => {
       console.log('error with call in handleSearch: ', err);
     });
-    this.setState({user: cleanString});
   }
 
   render() {
     return (
       <main className="app-wrapper">
         <UserSearchForm handleSearch={this.handleSearch} />
-        <UserStats userStats={this.state.userStats} user={this.state.user}  />
+        <UserStats userStats={this.state.userStats}
+                   user={this.state.user}
+                   userInfo={this.state.userInfo}
+                   errors={this.state.errors}  />
+        <Loader loading={this.state.loading} /> 
       </main>
     )
   }

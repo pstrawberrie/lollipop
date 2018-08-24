@@ -7,7 +7,9 @@ const leagueApiController = require('./controllers/leagueApiController');
 
 // ++ League API Call
 router.post('/league-api', 
-  handleAsync(leagueApiController.handleCall)
+  handleAsync(leagueApiController.userSearch),
+  handleAsync(leagueApiController.userMatches),
+  leagueApiController.resolveUser
 );
 
 module.exports = router;
