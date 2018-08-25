@@ -12,7 +12,7 @@ export default class App extends React.Component {
   state = {
     user: '',
     loading: false,
-    errors: null,
+    error: null,
     userInfo: null,
     userStats: null,
     searchTimeout: 0,
