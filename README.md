@@ -1,9 +1,6 @@
 # Lollipop
 Practicing React with the LoL API
 
-### Using
-- [pstrawberrie base - react](https://github.com/pstrawberrie/base/tree/react)
-
 ### Service
 - Proxying requests to LoL API + Storing any data necessary
 - User rate limiting
